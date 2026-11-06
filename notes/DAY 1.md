@@ -162,6 +162,15 @@ seq 1 2 10 #打印 1 到 10，步长为2
 for v in $(seq 1 10)  #利用$()表示执行的程序
 ```
 
+批量改名
+
+```bash
+for i in *.txt; do mv "$i" "2026-$i"; done           # 加上同一前缀2026-
+for i in 2026-*.txt; do mv "$i" "${i#2026-}"; done   # 删除同一前缀2026-
+# 将所有.cpp文件改为 1.cpp 2.cpp ...
+i=1; for f in *.cpp; do mv "$f" "$i.cpp"; i=$((i+1)); done
+```
+
 **引号**
 
 ```bash
